@@ -1,7 +1,7 @@
 4 bit opcode 2 bit register x y
 0000 00 00
 
-0	xx  yy   HLT
+0	xx  yy   DEC
 1	xx  yy	 ADD - x = x + y
 2	xx  yy	 ADC - x = x + y + 1
 3	xx  yy	 SUB - x = x - y
@@ -10,33 +10,32 @@
 6	xx  yy	 OR  - x = x or y	
 7	xx  yy	 XOR - x = x xor y
 8	xx  yy	 NOT - x = !x
-9	xx  00	 INC - x = x + 1
-A	xx  yy   CLF - clear flags?
+9	xx  yy   INC - x = x + 1
+	
 
-B	xx  00   JMP - Jump to value in register x
-        xx  01   JMP - if not zero
+A	xx  00   ?
+	xx  01   ?
+        xx  10   ? 
+        xx  11   ?
+
+B	xx  00   ?
+        xx  01   ?
         xx  10   ?
         xx  11   ?
 
-C	xx  00   ?
+C	xx  yy   ?
 D	xx  yy   ?
 
-E	xx  00   LD - load mem reg x
-        xx  01   LD - load immediate
-        xx  10   IN - input to reg x
-        xx  11   ?
-
-F	xx  00   STR - store reg x to mem
-        xx  01   OUT - reg x to out  
+E	xx  yy   LD  - load mem from value in reg x into reg y then inc reg x
+F	xx  yy   STR - store reg y into mem at value in reg x then inc reg x
+    
 
 
-t0 mar <= ip ? halt
-t1 ir  <= mem , ip+1
+t0 mar <= reg[3] , mbr <= reg[3]+1 ? halt
+t1 ir  <= mem , reg[3] <= mbr
 
-t2 mar <= ip
+t2 mar <= reg[x] , mbr <= reg[x]+1
+t3 reg[x] <= mbr
 
-t3 mbr <= mem , ip+1
-t4 mar <= mbr 
-
-t5 mbr <= reg | mbr <= mem
-t6 reg <= mbr | mem <= mbr | ip <= mbr
+t6 mbr <= reg | mbr <= mem
+t7 reg[x] <= mbr | mem <= mbr
