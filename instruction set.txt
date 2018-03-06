@@ -1,17 +1,20 @@
 4 bit opcode 2 bit register x y
 0000 00 00
 
-0	xx  yy   DEC
-1	xx  yy	 ADD - x = x + y
+0	xx  yy   DEC - x = x + 1      zero flag
+1	xx  yy	 ADD - x = x + y      zero flag
 2	xx  yy	 ADC - x = x + y + 1
-3	xx  yy	 SUB - x = x - y
+3	xx  yy	 SUB - x = x - y      zero flag
 4	xx  yy	 SBC - x = x - y - 1
 5	xx  yy	 AND - x = x and y
 6	xx  yy	 OR  - x = x or y	
 7	xx  yy	 XOR - x = x xor y
 
 8	xx  yy	 NOT - x = !x
-9	xx  yy   INC - x = x + 1
+9	xx  00   INC - x = x + 1
+        xx  01   INC - x  = x + 1   if zero 
+	xx  10   INC - x  = x + 1   if not zero 
+	xx  11   
 A	xx  yy   MOV - x = y
 B	xx  00   ?
 C       xx  yy   ?
