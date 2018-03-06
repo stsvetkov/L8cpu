@@ -9,23 +9,13 @@
 5	xx  yy	 AND - x = x and y
 6	xx  yy	 OR  - x = x or y	
 7	xx  yy	 XOR - x = x xor y
+
 8	xx  yy	 NOT - x = !x
 9	xx  yy   INC - x = x + 1
-	
-
-A	xx  00   ?
-	xx  01   ?
-        xx  10   ? 
-        xx  11   ?
-
+A	xx  yy   MOV - x = y
 B	xx  00   ?
-        xx  01   ?
-        xx  10   ?
-        xx  11   ?
-
-C	xx  yy   ?
+C       xx  yy   ?
 D	xx  yy   ?
-
 E	xx  yy   LD  - load mem from value in reg x into reg y then inc reg x
 F	xx  yy   STR - store reg y into mem at value in reg x then inc reg x
     
