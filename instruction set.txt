@@ -18,9 +18,9 @@
 A	xx  yy   MOV - x = y
 B	xx  00   ?
 C       xx  yy   ?
-D	xx  yy   ?
-E	xx  yy   LD  - load mem from value in reg x into reg y then inc reg x
-F	xx  yy   STR - store reg y into mem at value in reg x then inc reg x
+D	xx  yy   OUT ?
+E	xx  yy   LD  - load mem from value in reg x into reg y then inc reg x if r3 or r0
+F	xx  yy   STR - store reg y into mem at value in reg x then inc reg x if r3 or r0
     
 
 
