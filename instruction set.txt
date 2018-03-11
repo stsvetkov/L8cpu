@@ -12,9 +12,9 @@
 
 8	xx  yy	 NOT - x = !x
 9	xx  00   INC - x = x + 1
-        xx  01   INC - x  = x + 1   if zero 
-	xx  10   INC - x  = x + 1   if not zero 
-	xx  11   
+        xx  01   INC - x  = x + 1  if carry set
+	xx  10   INC - x  = x + 1  if zero set
+	xx  11   clear flags ?
 A	xx  yy   MOV - x = y
 B	xx  00   ?
 C       xx  yy   ?
