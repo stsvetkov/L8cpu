@@ -14,13 +14,13 @@
 9	xx  00   INC - x = x + 1
         xx  01   INC - x  = x + 1  if carry set
 	xx  10   INC - x  = x + 1  if zero set
-	xx  11   clear flags ?
+	xx  11   INC - x  = x + 1  ?
 A	xx  yy   MOV - x = y
 B	xx  00   ?
 C       xx  yy   ?
-D	xx  yy   OUT ?
+D	xx  yy   IN  - store input register in x
 E	xx  yy   LD  - load mem from value in reg x into reg y then inc reg x if r3 or r0
-F	xx  yy   STR - store reg y into mem at value in reg x then inc reg x if r3 or r0
+F	xx  yy   STR - store reg y into mem at value in reg x then inc reg x if r3 or r0 
     
 
 
