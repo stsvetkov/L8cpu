@@ -1,0 +1,31 @@
+4 bit opcode 2 bit register x y
+0000 00 00
+
+0	xx  yy   DEC - x = x - 1
+1	xx  yy	 ADD - x = x + y
+2	xx  yy	 ADC - x = x + y + 1
+3	xx  yy	 SUB - x = x - y
+4	xx  yy	 SBC - x = x - y - 1
+5	xx  yy	 AND - x = x and y
+6	xx  yy	 OR  - x = x or y	
+7	xx  yy	 XOR - x = x xor y
+8	xx  yy	 NOT - x = !x
+9	xx  00	 INC - x = x + 1
+A	xx  yy   ?
+B	xx  yy   ?
+
+C	xx  00   JMP - Jump to value in register x
+        xx  01   JMP - if not zero
+        xx  10   ?
+        xx  11   ?
+D	xx  yy   LDI - load mem reg x
+E	xx  yy   LD - load mem reg x
+F	xx  yy   STR - store reg x to mem
+ 
+
+
+
+t0 mar <= pc 
+t1 ir  <= mem , ip+1
+t2 mar <= reg[y] , mbr <= reg[y], if ldi mar <= pc   
+t3 reg <= reg+alu | mem <= mbr | reg <= mem, pc+1 if ldi
